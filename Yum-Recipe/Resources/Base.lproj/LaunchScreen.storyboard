@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="FyI-BQ-wqz">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalCentering" alignment="center" spacing="103" translatesAutoresizingMaskIntoConstraints="NO" id="cBn-d0-7xc">
+                                <rect key="frame" x="53.666666666666657" y="271" width="286" height="310.33333333333326"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chef" translatesAutoresizingMaskIntoConstraints="NO" id="dXZ-Cg-A0t">
+                                        <rect key="frame" x="24" y="0.0" width="238" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="Lct-Md-Wno"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yum Recipes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyy-Sr-9N1">
+                                        <rect key="frame" x="0.0" y="253.00000000000003" width="286" height="57.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="48"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="dXZ-Cg-A0t" firstAttribute="leading" secondItem="cBn-d0-7xc" secondAttribute="leading" constant="24" id="UrD-L6-RMm"/>
+                                    <constraint firstAttribute="trailing" secondItem="dXZ-Cg-A0t" secondAttribute="trailing" constant="24" id="Viz-hR-vPq"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FyI-BQ-wqz" secondAttribute="trailing" id="0nS-vm-WWQ"/>
+                            <constraint firstItem="FyI-BQ-wqz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ecc-70-PiO"/>
+                            <constraint firstItem="cBn-d0-7xc" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Sss-Jy-jhk"/>
+                            <constraint firstAttribute="bottom" secondItem="FyI-BQ-wqz" secondAttribute="bottom" id="eUQ-ad-hgB"/>
+                            <constraint firstItem="FyI-BQ-wqz" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="kRR-aj-kfi"/>
+                            <constraint firstItem="cBn-d0-7xc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="mDy-Qw-buJ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Splash" width="138" height="301.66665649414062"/>
+        <image name="chef" width="45.333332061767578" height="45.333332061767578"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
