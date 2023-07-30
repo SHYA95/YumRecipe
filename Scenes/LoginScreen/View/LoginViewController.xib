@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Yum_Recipe" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="j9Z-MY-otZ">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="F5y-Hn-C4Q">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ju7-vi-Mwo">
+                    <rect key="frame" x="39" y="64" width="242.5" height="204.5"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chef" translatesAutoresizingMaskIntoConstraints="NO" id="Vct-aX-Osf">
+                            <rect key="frame" x="0.0" y="0.0" width="242.5" height="120"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="120" id="RxI-bR-1Bm"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yum Recipes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AiM-AF-Kdp">
+                            <rect key="frame" x="0.0" y="128" width="242.5" height="47"/>
+                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="39"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cook in easy way" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhd-GZ-zNu">
+                            <rect key="frame" x="52" y="183" width="138.5" height="21.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Vct-aX-Osf" secondAttribute="trailing" id="3hB-TI-vz3"/>
+                    </constraints>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="TLh-M6-yzE">
+                    <rect key="frame" x="64" y="302.5" width="192" height="170.5"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="QcY-uS-kjN">
+                            <rect key="frame" x="0.0" y="0.0" width="192" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="34" id="D0e-6Y-zZb"/>
+                            </constraints>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="opa-IS-7SQ">
+                            <rect key="frame" x="0.0" y="68" width="192" height="34"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="34" id="TCd-qb-tE2"/>
+                            </constraints>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVD-NV-F65">
+                            <rect key="frame" x="0.0" y="136" width="192" height="34.5"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Login">
+                                <color key="baseBackgroundColor" red="0.94269311430000002" green="0.43940542490000001" blue="0.03163461109" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </buttonConfiguration>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="QcY-uS-kjN" firstAttribute="leading" secondItem="TLh-M6-yzE" secondAttribute="leading" id="0L8-ka-Obm"/>
+                        <constraint firstItem="wVD-NV-F65" firstAttribute="leading" secondItem="TLh-M6-yzE" secondAttribute="leading" id="BOj-Ek-4Rk"/>
+                        <constraint firstItem="QcY-uS-kjN" firstAttribute="top" secondItem="TLh-M6-yzE" secondAttribute="top" id="CWN-R5-Zcx"/>
+                        <constraint firstAttribute="trailing" secondItem="opa-IS-7SQ" secondAttribute="trailing" id="EyL-bb-NY3"/>
+                        <constraint firstAttribute="trailing" secondItem="wVD-NV-F65" secondAttribute="trailing" id="HcK-ft-XwF"/>
+                        <constraint firstAttribute="trailing" secondItem="QcY-uS-kjN" secondAttribute="trailing" id="Ype-eZ-s0R"/>
+                        <constraint firstItem="opa-IS-7SQ" firstAttribute="leading" secondItem="TLh-M6-yzE" secondAttribute="leading" id="cNM-aA-B54"/>
+                    </constraints>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="5yU-0C-Wcd">
+                    <rect key="frame" x="22" y="302" width="34" height="102"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Slt-1T-69m">
+                            <rect key="frame" x="0.0" y="1.5" width="34" height="30.5"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="34" id="MQw-2e-J9L"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="key.horizontal.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SOx-w9-hnM">
+                            <rect key="frame" x="0.0" y="71.5" width="34" height="27"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="34" id="6IO-Y6-QsT"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="34" id="tIE-ib-ySp"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Et3-iY-hEg"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="ju7-vi-Mwo" firstAttribute="top" secondItem="Et3-iY-hEg" secondAttribute="top" constant="44" id="8Hm-wK-QME"/>
+                <constraint firstItem="TLh-M6-yzE" firstAttribute="top" secondItem="ju7-vi-Mwo" secondAttribute="bottom" constant="34" id="8zg-nR-z61"/>
+                <constraint firstAttribute="bottom" secondItem="F5y-Hn-C4Q" secondAttribute="bottom" id="Mvz-vn-2R2"/>
+                <constraint firstItem="QcY-uS-kjN" firstAttribute="leading" secondItem="Slt-1T-69m" secondAttribute="trailing" constant="8" symbolic="YES" id="NFT-AC-nDo"/>
+                <constraint firstItem="opa-IS-7SQ" firstAttribute="leading" secondItem="SOx-w9-hnM" secondAttribute="trailing" constant="8" symbolic="YES" id="XyS-Yc-Odx"/>
+                <constraint firstItem="TLh-M6-yzE" firstAttribute="leading" secondItem="5yU-0C-Wcd" secondAttribute="trailing" constant="8" symbolic="YES" id="e2Q-Ae-J6N"/>
+                <constraint firstItem="F5y-Hn-C4Q" firstAttribute="top" secondItem="j9Z-MY-otZ" secondAttribute="top" id="f0E-vF-8VC"/>
+                <constraint firstItem="ju7-vi-Mwo" firstAttribute="centerX" secondItem="j9Z-MY-otZ" secondAttribute="centerX" id="fgu-x1-M3T"/>
+                <constraint firstItem="TLh-M6-yzE" firstAttribute="centerX" secondItem="j9Z-MY-otZ" secondAttribute="centerX" id="ilb-tS-LLL"/>
+                <constraint firstItem="F5y-Hn-C4Q" firstAttribute="leading" secondItem="j9Z-MY-otZ" secondAttribute="leading" id="j2E-4e-F4v"/>
+                <constraint firstItem="TLh-M6-yzE" firstAttribute="leading" secondItem="5yU-0C-Wcd" secondAttribute="trailing" constant="8" id="k1G-N0-V1v"/>
+                <constraint firstItem="TLh-M6-yzE" firstAttribute="leading" secondItem="Et3-iY-hEg" secondAttribute="leading" constant="64" id="kd8-Ww-kKl"/>
+                <constraint firstAttribute="trailing" secondItem="F5y-Hn-C4Q" secondAttribute="trailing" id="rad-G8-Ip4"/>
+                <constraint firstItem="5yU-0C-Wcd" firstAttribute="top" secondItem="ju7-vi-Mwo" secondAttribute="bottom" constant="33.5" id="xOK-AQ-aBo"/>
+            </constraints>
+            <point key="canvasLocation" x="-321" y="693"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Splash" width="138" height="301.5"/>
+        <image name="chef" width="45" height="45"/>
+        <image name="envelope.fill" catalog="system" width="128" height="93"/>
+        <image name="key.horizontal.fill" catalog="system" width="128" height="65"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
