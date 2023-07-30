@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 enum NetworkError: Error {
     case urlError
@@ -15,30 +14,33 @@ enum NetworkError: Error {
 
 public class APICaller {
     
-    static func getRecipesModel(completionHandler: @escaping (_ result: Result<[RecipesModel], NetworkError>) -> Void) {
+    static func getRecipesModel(completionHandler: @escaping (Result<[RecipesModel], Error>) -> Void) {
         if NetworkConstants.shared.accessKey.isEmpty {
             print("<!> API KEY is Missing <!>")
-            print("<!> Get One from: https://www.themoviedb.org/ <!>")
+            print("<!> Get One from: https://api.npoint.io/ <!>")
+            completionHandler(.failure(NetworkError.urlError))
             return
         }
         
-        let urlString = NetworkConstants.shared.serverAddress +
-                "trending/all/day?api_key=" +
-                NetworkConstants.shared.accessKey
-                
+        let urlString = NetworkConstants.shared.serverAddress + NetworkConstants.shared.accessKey
+        
         guard let url = URL(string: urlString) else {
-            completionHandler(Result.failure(.urlError))
+            completionHandler(.failure(NetworkError.urlError))
             return
         }
         
-        URLSession.shared.dataTask(with: url) { dataResponse, urlResponse, err in
-            if err == nil,
-               let data = dataResponse,
-               let resultData = try? JSONDecoder().decode([RecipesModel].self, from: data) {
-                completionHandler(.success(resultData))
-            } else {
-                print(err.debugDescription)
-                completionHandler(.failure(.canNotParseData))
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            if let error = error {
+                completionHandler(.failure(error))
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let recipes = try decoder.decode([RecipesModel].self, from: data!)
+                completionHandler(.success(recipes))
+            } catch {
+                completionHandler(.failure(NetworkError.canNotParseData))
             }
         }.resume()
     }

@@ -32,7 +32,7 @@
                     <rect key="frame" x="0.0" y="44" width="428" height="848"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hEU-b2-4ez">
-                            <rect key="frame" x="0.0" y="0.0" width="428" height="1000"/>
+                            <rect key="frame" x="0.0" y="0.0" width="428" height="1200"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Far-pw-tfH">
                                     <rect key="frame" x="361.33333333333331" y="210" width="50.666666666666686" height="30"/>
@@ -47,54 +47,54 @@
                                     </connections>
                                 </button>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="bfl-aS-acM">
-                                    <rect key="frame" x="0.0" y="0.0" width="428" height="953.66666666666663"/>
+                                    <rect key="frame" x="8" y="0.0" width="412" height="974"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chef" translatesAutoresizingMaskIntoConstraints="NO" id="1pm-pF-4oG">
-                                            <rect key="frame" x="0.0" y="0.0" width="428" height="250"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="412" height="250"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="250" id="GFF-Pl-aER"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lentil Panang Curry" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGd-0O-iYk">
-                                            <rect key="frame" x="0.0" y="262" width="428" height="28.666666666666686"/>
+                                            <rect key="frame" x="0.0" y="262" width="412" height="28.666666666666686"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="with Roasted Cauliflower, Green Beans and Brown Rice" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSY-RG-Pej">
-                                            <rect key="frame" x="0.0" y="302.66666666666669" width="428" height="40.666666666666686"/>
+                                            <rect key="frame" x="0.0" y="302.66666666666669" width="412" height="40.666666666666686"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <color key="textColor" red="0.94269311430000002" green="0.43940542490000001" blue="0.03163461109" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="156" translatesAutoresizingMaskIntoConstraints="NO" id="2ak-2Y-84s">
-                                            <rect key="frame" x="0.0" y="355.33333333333331" width="428" height="88"/>
+                                            <rect key="frame" x="0.0" y="355.33333333333331" width="412" height="88"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="h1d-XI-SxX">
-                                                    <rect key="frame" x="0.0" y="0.0" width="197" height="88"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="181" height="88"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQG-Wy-Q3X">
-                                                            <rect key="frame" x="0.0" y="0.0" width="197" height="24"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="181" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                             <color key="textColor" systemColor="systemBlueColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fats" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quF-dj-b4e">
-                                                            <rect key="frame" x="0.0" y="32" width="197" height="24"/>
+                                                            <rect key="frame" x="0.0" y="32" width="181" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Calories" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GeB-Gq-pU8">
-                                                            <rect key="frame" x="0.0" y="64" width="197" height="24"/>
+                                                            <rect key="frame" x="0.0" y="64" width="181" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                            <color key="textColor" red="0.94269311430000002" green="0.43940542490000001" blue="0.03163461109" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lkH-Yt-9Yj">
-                                                    <rect key="frame" x="353" y="0.0" width="75" height="88"/>
+                                                    <rect key="frame" x="337" y="0.0" width="75" height="88"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgU-Mn-CE3">
                                                             <rect key="frame" x="0.0" y="0.0" width="75" height="24"/>
@@ -111,7 +111,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8K-KQ-asj">
                                                             <rect key="frame" x="0.0" y="64" width="75" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                            <color key="textColor" red="0.94269311430000002" green="0.43940542490000001" blue="0.03163461109" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -128,27 +128,27 @@
                                             </constraints>
                                         </stackView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ti-Be-GmB">
-                                            <rect key="frame" x="0.0" y="455.33333333333331" width="428" height="162.33333333333331"/>
+                                            <rect key="frame" x="0.0" y="455.33333333333331" width="412" height="182.66666666666669"/>
                                             <string key="text">There’s nothing like the simple things in life - the smell of freshly cut grass, sitting outside on a nice sunny day, spending time with friends and family. Well here is a recipe that delivers simple culinary pleasures - some nice fresh fish with a crispy crust, crunchy potato wedges and some delightfully sweet sugar snap peas flavoured with cooling mint. Slip into something comfortable and relax into a delicious dinner!"</string>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfe-ga-50q">
-                                            <rect key="frame" x="0.0" y="629.66666666666663" width="428" height="24"/>
+                                            <rect key="frame" x="0.0" y="650" width="412" height="24"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                            <color key="textColor" red="0.94269311430000002" green="0.43940542490000001" blue="0.03163461109" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9n-cz-jZH">
-                                            <rect key="frame" x="0.0" y="665.66666666666663" width="428" height="2"/>
+                                            <rect key="frame" x="0.0" y="686" width="412" height="2"/>
                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="2" id="m3f-UG-vWv"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Pq-DL-bEA">
-                                            <rect key="frame" x="0.0" y="679.66666666666663" width="428" height="274"/>
+                                            <rect key="frame" x="0.0" y="700" width="412" height="274"/>
                                             <string key="text">375g Sweet Potatoes
 1 Tsp Paprika
 2 Tbsps Parmesan Cheese
@@ -169,10 +169,10 @@ A Few Sprigs Mint
                             </subviews>
                             <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="1000" id="2eD-Bq-qGa"/>
+                                <constraint firstAttribute="height" constant="1200" id="2eD-Bq-qGa"/>
+                                <constraint firstAttribute="trailing" secondItem="bfl-aS-acM" secondAttribute="trailing" constant="8" id="7cb-q9-fNd"/>
                                 <constraint firstItem="bfl-aS-acM" firstAttribute="top" secondItem="hEU-b2-4ez" secondAttribute="top" id="7qC-JQ-C6T"/>
-                                <constraint firstAttribute="trailing" secondItem="bfl-aS-acM" secondAttribute="trailing" id="WDk-Cm-Bei"/>
-                                <constraint firstItem="bfl-aS-acM" firstAttribute="leading" secondItem="hEU-b2-4ez" secondAttribute="leading" id="gob-vF-ZUr"/>
+                                <constraint firstItem="bfl-aS-acM" firstAttribute="leading" secondItem="hEU-b2-4ez" secondAttribute="leading" constant="8" id="FNs-A6-3YW"/>
                                 <constraint firstAttribute="trailing" secondItem="Far-pw-tfH" secondAttribute="trailing" constant="16" id="mnI-Un-fvg"/>
                                 <constraint firstItem="bfl-aS-acM" firstAttribute="centerX" secondItem="hEU-b2-4ez" secondAttribute="centerX" id="ofl-7z-1hO"/>
                                 <constraint firstItem="Far-pw-tfH" firstAttribute="top" secondItem="hEU-b2-4ez" secondAttribute="top" constant="210" id="rY1-92-gwX"/>
@@ -190,6 +190,7 @@ A Few Sprigs Mint
             </subviews>
             <viewLayoutGuide key="safeArea" id="z5O-mg-Dvs"/>
             <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="xNi-Fh-ZFq" firstAttribute="leading" secondItem="z5O-mg-Dvs" secondAttribute="leading" id="7Wz-xX-5KI"/>
                 <constraint firstItem="z5O-mg-Dvs" firstAttribute="bottom" secondItem="xNi-Fh-ZFq" secondAttribute="bottom" id="prL-I9-p1u"/>

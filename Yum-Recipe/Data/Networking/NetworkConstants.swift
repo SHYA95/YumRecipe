@@ -6,11 +6,6 @@
 //
 
 import Foundation
-//enum APIConfig {
-//    static let baseUrl: String = "https://api.npoint.io"
-//    static let accessKey: String = "/43427003d33f1f6b51cc"
-//}
-
 
 class NetworkConstants {
     
