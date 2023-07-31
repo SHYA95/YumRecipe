@@ -1,6 +1,6 @@
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController ,UICollectionViewDelegate{
     
     @IBOutlet weak var Indicator: UIActivityIndicatorView!
     @IBOutlet weak var RecipesCollectionView: UICollectionView!
@@ -9,26 +9,36 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        showLoader()
         RecipesCollectionView.backgroundColor = .black
         
         viewModel = HomeViewModel() // Initialize the view model
         viewModel.delegate = self // Set the delegate to self
-        
+     
         RecipesCollectionView.register(UINib(nibName: "RecipeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "RecipeCollectionViewCell")
         RecipesCollectionView.dataSource = self
         RecipesCollectionView.delegate = self
         
         // Call getData to fetch the data from the API
-        viewModel.getData()
-        
-        // Bind the data to the collection view
-        viewModel.recipes.bind { [weak self] _ in
-            self?.RecipesCollectionView.reloadData()
-        }
-    }
-}
+                viewModel.getData()
+                
+                // Bind the data to the collection view
+                viewModel.recipes.bind { [weak self] _ in
+                    self?.hideLoader() // Hide the loader indicator once the data is loaded
+                    self?.RecipesCollectionView.reloadData()
+                }
+            }
 
+            func showLoader() {
+                Indicator.startAnimating()
+                Indicator.isHidden = false
+            }
+
+            func hideLoader() {
+                Indicator.stopAnimating()
+                Indicator.isHidden = true
+            }
+        }
 // MARK: - UICollectionViewDataSource
 extension HomeViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -49,7 +59,6 @@ extension HomeViewController: UICollectionViewDataSource {
         return cell
     }
 }
-
 // MARK: - UICollectionViewDelegateFlowLayout
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -57,7 +66,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         let spacing: CGFloat = 16
         let collectionViewWidth = collectionView.frame.width
         let cellWidth = (collectionViewWidth - 1 * padding - 2 * spacing) / 2
-        let cellHeight = cellWidth + 100
+        let cellHeight = cellWidth + 105
         // Adjust the height according to your design
         
         return CGSize(width: cellWidth, height: cellHeight)
@@ -74,17 +83,32 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 4, left: 16, bottom: 16, right: 16)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let recipe = viewModel.getRecipe(at: indexPath.item) {
+            // Create an instance of DetailsRecipeViewModel with the selected recipe
+            let recipeDetailsViewModel = DetailsRecipeViewModel(recipe: recipe)
+            
+            // Create an instance of RecipeDetailsViewController
+            let recipeDetailsViewController = RecipeDetailsViewController()
+            
+            // Set the view model of RecipeDetailsViewController
+            recipeDetailsViewController.viewModel = recipeDetailsViewModel
+            
+            // Push the RecipeDetailsViewController onto the navigation stack
+            navigationController?.pushViewController(recipeDetailsViewController, animated: true)
+        }
+    }
+    
 }
 
-
 // MARK: - HomeViewModelDelegate
+
 extension HomeViewController: HomeViewModelDelegate {
-    func didSelectRecipe(_ recipe: RecipesModel) { // Update the parameter type to RecipeModel
-        // Handle the cell selection and navigation here
-        print("press")
+    func didSelectRecipe(_ recipe: RecipesModel) {
+        let recipeDetailsViewModel = DetailsRecipeViewModel(recipe: recipe)
         let recipeDetailsViewController = RecipeDetailsViewController()
-        // Pass the selected recipe to the RecipeDetailsViewController
-        // recipeDetailsViewController.selectedRecipe = recipe
+        recipeDetailsViewController.viewModel = recipeDetailsViewModel
         navigationController?.pushViewController(recipeDetailsViewController, animated: true)
     }
 }

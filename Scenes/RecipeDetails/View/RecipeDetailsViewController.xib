@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -34,20 +35,8 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hEU-b2-4ez">
                             <rect key="frame" x="0.0" y="0.0" width="428" height="1200"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Far-pw-tfH">
-                                    <rect key="frame" x="361.33333333333331" y="210" width="50.666666666666686" height="30"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="30" id="urv-ZI-Xv9"/>
-                                    </constraints>
-                                    <color key="tintColor" red="0.94269311430000002" green="0.43940542490000001" blue="0.03163461109" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
-                                    <connections>
-                                        <action selector="FavButton:" destination="-1" eventType="touchUpInside" id="Gwi-Mc-bvE"/>
-                                    </connections>
-                                </button>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="bfl-aS-acM">
-                                    <rect key="frame" x="8" y="0.0" width="412" height="974"/>
+                                    <rect key="frame" x="8" y="0.0" width="412" height="1016"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chef" translatesAutoresizingMaskIntoConstraints="NO" id="1pm-pF-4oG">
                                             <rect key="frame" x="0.0" y="0.0" width="412" height="250"/>
@@ -67,8 +56,23 @@
                                             <color key="textColor" red="0.94269311430000002" green="0.43940542490000001" blue="0.03163461109" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Far-pw-tfH">
+                                            <rect key="frame" x="0.0" y="355.33333333333331" width="412" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="Uhe-w9-fyb"/>
+                                                <constraint firstAttribute="height" constant="30" id="urv-ZI-Xv9"/>
+                                            </constraints>
+                                            <color key="tintColor" red="0.94269311430000002" green="0.43940542490000001" blue="0.03163461109" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain">
+                                                <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                                            </buttonConfiguration>
+                                            <connections>
+                                                <action selector="FavButton:" destination="-1" eventType="touchUpInside" id="Gwi-Mc-bvE"/>
+                                            </connections>
+                                        </button>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="156" translatesAutoresizingMaskIntoConstraints="NO" id="2ak-2Y-84s">
-                                            <rect key="frame" x="0.0" y="355.33333333333331" width="412" height="88"/>
+                                            <rect key="frame" x="0.0" y="397.33333333333331" width="412" height="88"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="h1d-XI-SxX">
                                                     <rect key="frame" x="0.0" y="0.0" width="181" height="88"/>
@@ -128,27 +132,27 @@
                                             </constraints>
                                         </stackView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ti-Be-GmB">
-                                            <rect key="frame" x="0.0" y="455.33333333333331" width="412" height="182.66666666666669"/>
+                                            <rect key="frame" x="0.0" y="497.33333333333343" width="412" height="182.66666666666669"/>
                                             <string key="text">There’s nothing like the simple things in life - the smell of freshly cut grass, sitting outside on a nice sunny day, spending time with friends and family. Well here is a recipe that delivers simple culinary pleasures - some nice fresh fish with a crispy crust, crunchy potato wedges and some delightfully sweet sugar snap peas flavoured with cooling mint. Slip into something comfortable and relax into a delicious dinner!"</string>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfe-ga-50q">
-                                            <rect key="frame" x="0.0" y="650" width="412" height="24"/>
+                                            <rect key="frame" x="0.0" y="692" width="412" height="24"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9n-cz-jZH">
-                                            <rect key="frame" x="0.0" y="686" width="412" height="2"/>
+                                            <rect key="frame" x="0.0" y="728" width="412" height="2"/>
                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="2" id="m3f-UG-vWv"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Pq-DL-bEA">
-                                            <rect key="frame" x="0.0" y="700" width="412" height="274"/>
+                                            <rect key="frame" x="0.0" y="742" width="412" height="274"/>
                                             <string key="text">375g Sweet Potatoes
 1 Tsp Paprika
 2 Tbsps Parmesan Cheese
@@ -173,9 +177,7 @@ A Few Sprigs Mint
                                 <constraint firstAttribute="trailing" secondItem="bfl-aS-acM" secondAttribute="trailing" constant="8" id="7cb-q9-fNd"/>
                                 <constraint firstItem="bfl-aS-acM" firstAttribute="top" secondItem="hEU-b2-4ez" secondAttribute="top" id="7qC-JQ-C6T"/>
                                 <constraint firstItem="bfl-aS-acM" firstAttribute="leading" secondItem="hEU-b2-4ez" secondAttribute="leading" constant="8" id="FNs-A6-3YW"/>
-                                <constraint firstAttribute="trailing" secondItem="Far-pw-tfH" secondAttribute="trailing" constant="16" id="mnI-Un-fvg"/>
                                 <constraint firstItem="bfl-aS-acM" firstAttribute="centerX" secondItem="hEU-b2-4ez" secondAttribute="centerX" id="ofl-7z-1hO"/>
-                                <constraint firstItem="Far-pw-tfH" firstAttribute="top" secondItem="hEU-b2-4ez" secondAttribute="top" constant="210" id="rY1-92-gwX"/>
                             </constraints>
                         </view>
                     </subviews>
