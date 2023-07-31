@@ -23,6 +23,8 @@ class NetworkConstants {
             return "https://api.npoint.io"
         }
     }
+    static let validEmail = "shya@mail.com"
+    static let validPassword = "pass123"
     
     
 }
