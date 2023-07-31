@@ -44,8 +44,8 @@ class RecipeDetailsViewController: UIViewController {
             RecipeCalories.text = viewModel.recipeData.calories
             RecipeTime.text = viewModel.recipeData.time
             // Set other UI elements accordingly
-            print (viewModel.recipeData.ingredients)
-            print(viewModel.recipeData.name)
+//            print (viewModel.recipeData.ingredients)
+//            print(viewModel.recipeData.name)
             // Load the image using Kingfisher
             if let imageURL = viewModel.recipeData.recipeImage {
                 RecipeImage.kf.setImage(with: imageURL)
