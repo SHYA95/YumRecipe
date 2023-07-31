@@ -5,6 +5,7 @@
 //  Created by Shrouk Yasser on 30/07/2023.
 //
 import UIKit
+import Kingfisher
 
 class RecipeCollectionViewCell: UICollectionViewCell {
     
@@ -25,16 +26,35 @@ class RecipeCollectionViewCell: UICollectionViewCell {
         layer.shadowOpacity = 0.5
     }
     
-    func configure(with recipe: RecipesModel) {
-        // Configure your cell here with the data for each item
-        RecipeName.text = recipe.name
-        RecipeTime.text = recipe.time
-        RecipeFats.text = recipe.fats
-        RecipeRating.text = "\(String(describing: recipe.rating))"
-        // For simplicity, set a placeholder image for now
-        RecipeImage.image = UIImage(named: recipe.image ?? "chef")
+    override var isSelected: Bool {
+        didSet {
+           
+        }
+        
+    }
+    // Function to generate a random rating between 1 and 5 (inclusive)
+    func generateRandomRating() -> String {
+        let randomRating = Double.random(in: 1...5)
+        return String(format: "%.1f", randomRating)
+    }
+
+    
+
+
+    
+    func setupCell(_ model: RecipesModel) {
+        RecipeImage.kf.setImage(with: URL(string: model.image!))
+        RecipeName.text = model.name
+        RecipeTime.text = model.time
+        RecipeFats.text = model.fats
+        RecipeRating.text = generateRandomRating()
+        //RecipeRating.text = "\(String(RandomNumberGenerator[1:5]/5))"
     }
     
+    
+    
+
     @IBAction func FavButton(_ sender: UIButton) {
+        
     }
 }

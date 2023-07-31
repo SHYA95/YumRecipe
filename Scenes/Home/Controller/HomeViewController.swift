@@ -1,20 +1,15 @@
-//
-//  HomeViewController.swift
-//  Yum-Recipe
-//
-//  Created by Shrouk Yasser on 30/07/2023.
-//
-
 import UIKit
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var Indicator: UIActivityIndicatorView!
     @IBOutlet weak var RecipesCollectionView: UICollectionView!
     
     var viewModel: HomeViewModel! // Declare the view model
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         RecipesCollectionView.backgroundColor = .black
         
         viewModel = HomeViewModel() // Initialize the view model
@@ -23,12 +18,16 @@ class HomeViewController: UIViewController {
         RecipesCollectionView.register(UINib(nibName: "RecipeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "RecipeCollectionViewCell")
         RecipesCollectionView.dataSource = self
         RecipesCollectionView.delegate = self
-    }
-    override func viewDidAppear(_ animated: Bool) {
+        
+        // Call getData to fetch the data from the API
         viewModel.getData()
+        
+        // Bind the data to the collection view
+        viewModel.recipes.bind { [weak self] _ in
+            self?.RecipesCollectionView.reloadData()
+        }
     }
 }
-
 
 // MARK: - UICollectionViewDataSource
 extension HomeViewController: UICollectionViewDataSource {
@@ -37,15 +36,16 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9 // Use the view model to get the number of recipes
+        return viewModel.getNumberOfRecipes() // Use the view model to get the number of recipes
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecipeCollectionViewCell", for: indexPath) as! RecipeCollectionViewCell
         
-//        let recipe = viewModel.getRecipe(at: indexPath.item) // Use the view model to get the recipe at the specified index
-//        cell.configure(with: recipe) // Configure the cell using the recipe
-//
+        if let recipe = viewModel.getRecipe(at: indexPath.item) { // Unwrap the recipe
+            cell.setupCell(recipe) // Configure the cell using the recipe
+        }
+        
         return cell
     }
 }
@@ -57,7 +57,8 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         let spacing: CGFloat = 16
         let collectionViewWidth = collectionView.frame.width
         let cellWidth = (collectionViewWidth - 1 * padding - 2 * spacing) / 2
-        let cellHeight = cellWidth + 75 // Adjust the height according to your design
+        let cellHeight = cellWidth + 100
+        // Adjust the height according to your design
         
         return CGSize(width: cellWidth, height: cellHeight)
     }
@@ -71,13 +72,19 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        return UIEdgeInsets(top: 4, left: 16, bottom: 16, right: 16)
     }
 }
 
+
 // MARK: - HomeViewModelDelegate
 extension HomeViewController: HomeViewModelDelegate {
-    func didSelectRecipe(_ recipe: RecipesModel) {
-        // Handle the selected recipe here or navigate to another view controller
+    func didSelectRecipe(_ recipe: RecipesModel) { // Update the parameter type to RecipeModel
+        // Handle the cell selection and navigation here
+        print("press")
+        let recipeDetailsViewController = RecipeDetailsViewController()
+        // Pass the selected recipe to the RecipeDetailsViewController
+        // recipeDetailsViewController.selectedRecipe = recipe
+        navigationController?.pushViewController(recipeDetailsViewController, animated: true)
     }
 }

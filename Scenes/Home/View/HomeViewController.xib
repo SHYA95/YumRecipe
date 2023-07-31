@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Yum_Recipe" customModuleProvider="target">
             <connections>
+                <outlet property="Indicator" destination="w0f-Km-yeA" id="ZQq-fd-Qdm"/>
                 <outlet property="RecipesCollectionView" destination="3k3-ea-4Mk" id="Uwd-Gd-vAa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -48,13 +49,23 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <activityIndicatorView opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="w0f-Km-yeA">
+                    <rect key="frame" x="142.5" y="266.5" width="35" height="35"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="BJ7-TW-0WD"/>
+                        <constraint firstAttribute="height" constant="35" id="LlU-In-HqY"/>
+                    </constraints>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.25098040700000002" green="0.25098040700000002" blue="0.25098040700000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
+                <constraint firstItem="w0f-Km-yeA" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="BYu-T6-KPl"/>
                 <constraint firstItem="dUL-BW-HQR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Fg7-Im-1JF"/>
                 <constraint firstItem="dUL-BW-HQR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="Gu6-Df-H8U"/>
                 <constraint firstItem="3k3-ea-4Mk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="JEe-X9-qm8"/>
+                <constraint firstItem="w0f-Km-yeA" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Wi0-2T-d66"/>
                 <constraint firstItem="3k3-ea-4Mk" firstAttribute="top" secondItem="dUL-BW-HQR" secondAttribute="bottom" id="fO5-Mo-xLq"/>
                 <constraint firstAttribute="bottom" secondItem="3k3-ea-4Mk" secondAttribute="bottom" id="nYJ-4S-MpK"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3k3-ea-4Mk" secondAttribute="trailing" id="z5c-Ou-JbQ"/>
