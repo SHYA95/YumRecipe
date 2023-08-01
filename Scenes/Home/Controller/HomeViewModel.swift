@@ -5,12 +5,16 @@
 //  Created by Shrouk Yasser on 30/07/2023.
 //
 
+
 import Foundation
 import Kingfisher
 
+
 protocol HomeViewModelDelegate: AnyObject {
     func didSelectRecipe(_ recipe: RecipesModel)
+    func didToggleFavoriteStatus(for recipe: RecipesModel)
 }
+
 
 class HomeViewModel {
     var isLoadingData: Observable<Bool> = Observable(false)
@@ -88,4 +92,15 @@ class HomeViewModel {
             fats: recipe.fats ?? ""
         )
     }
-}
+    func toggleFavorite(for recipe: RecipesModel) {
+           if let recipeID = Int(recipe.id ?? "") {
+               let favoritesManager = FavoriteRecipesManager()
+               if favoritesManager.isFavoriteRecipe(recipeID: recipeID) {
+                   favoritesManager.removeFavoriteRecipe(recipeID: recipeID)
+               } else {
+                   favoritesManager.addFavoriteRecipe(recipeID: recipeID)
+               }
+               delegate?.didToggleFavoriteStatus(for: recipe)
+           }
+       }
+   }

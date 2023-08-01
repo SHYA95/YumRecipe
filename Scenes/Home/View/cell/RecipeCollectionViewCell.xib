@@ -110,7 +110,7 @@
                                                             <color key="baseForegroundColor" red="0.94269311430000002" green="0.43940542490000001" blue="0.03163461109" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </buttonConfiguration>
                                                         <connections>
-                                                            <action selector="FavButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="G0I-eU-32t"/>
+                                                            <action selector="favButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="jOx-b5-dfz"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>

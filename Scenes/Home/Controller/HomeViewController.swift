@@ -1,6 +1,21 @@
+//
+//  HomeViewController.swift
+//  Yum-Recipe
+//
+//  Created by Shrouk Yasser on 29/07/2023.
+//
 import UIKit
 
-class HomeViewController: UIViewController ,UICollectionViewDelegate{
+class HomeViewController: UIViewController, UICollectionViewDelegate, RecipeCollectionViewCellDelegate, RecipeDetailsViewControllerDelegate {
+    func didTapFavoriteButton(for recipeID: Int) {
+        RecipesCollectionView.reloadData()
+    }
+    
+    func didToggleFavoriteStatus(for recipeID: Int) {
+        RecipesCollectionView.reloadData()
+    }
+    
+    
     
     @IBOutlet weak var Indicator: UIActivityIndicatorView!
     @IBOutlet weak var RecipesCollectionView: UICollectionView!
@@ -28,17 +43,17 @@ class HomeViewController: UIViewController ,UICollectionViewDelegate{
                     self?.RecipesCollectionView.reloadData()
                 }
             }
-
-            func showLoader() {
-                Indicator.startAnimating()
-                Indicator.isHidden = false
-            }
-
-            func hideLoader() {
-                Indicator.stopAnimating()
-                Indicator.isHidden = true
-            }
+    func showLoader() {
+            Indicator.startAnimating()
+            Indicator.isHidden = false
         }
+
+        func hideLoader() {
+            Indicator.stopAnimating()
+            Indicator.isHidden = true
+        }
+    }
+
 // MARK: - UICollectionViewDataSource
 extension HomeViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -52,13 +67,19 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecipeCollectionViewCell", for: indexPath) as! RecipeCollectionViewCell
         
-        if let recipe = viewModel.getRecipe(at: indexPath.item) { // Unwrap the recipe
-            cell.setupCell(recipe) // Configure the cell using the recipe
+        // Set the delegate of the cell to self (the HomeViewController)
+        cell.delegate = self
+        
+        // Rest of your cell setup code
+        if let recipe = viewModel.getRecipe(at: indexPath.item) {
+            cell.setupCell(recipe)
         }
         
         return cell
     }
 }
+
+
 // MARK: - UICollectionViewDelegateFlowLayout
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -85,30 +106,40 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let recipe = viewModel.getRecipe(at: indexPath.item) {
-            // Create an instance of DetailsRecipeViewModel with the selected recipe
-            let recipeDetailsViewModel = DetailsRecipeViewModel(recipe: recipe)
-            
-            // Create an instance of RecipeDetailsViewController
-            let recipeDetailsViewController = RecipeDetailsViewController()
-            
-            // Set the view model of RecipeDetailsViewController
-            recipeDetailsViewController.viewModel = recipeDetailsViewModel
-            
-            // Push the RecipeDetailsViewController onto the navigation stack
-            navigationController?.pushViewController(recipeDetailsViewController, animated: true)
+            if let recipe = viewModel.getRecipe(at: indexPath.item) {
+                // Create an instance of DetailsRecipeViewModel with the selected recipe
+                let recipeDetailsViewModel = DetailsRecipeViewModel(recipe: recipe)
+
+                // Create an instance of RecipeDetailsViewController
+                let recipeDetailsViewController = RecipeDetailsViewController()
+
+                // Set the view model of RecipeDetailsViewController
+                recipeDetailsViewController.viewModel = recipeDetailsViewModel
+
+                // Push the RecipeDetailsViewController onto the navigation stack
+                navigationController?.pushViewController(recipeDetailsViewController, animated: true)
+            }
         }
-    }
+
     
 }
 
 // MARK: - HomeViewModelDelegate
-
 extension HomeViewController: HomeViewModelDelegate {
     func didSelectRecipe(_ recipe: RecipesModel) {
+        // Handle recipe selection
         let recipeDetailsViewModel = DetailsRecipeViewModel(recipe: recipe)
         let recipeDetailsViewController = RecipeDetailsViewController()
         recipeDetailsViewController.viewModel = recipeDetailsViewModel
         navigationController?.pushViewController(recipeDetailsViewController, animated: true)
     }
+    
+    func didToggleFavoriteStatus(for recipe: RecipesModel) {
+        // Handle favorite status change
+        RecipesCollectionView.reloadData()
+    }
 }
+
+
+    
+    
