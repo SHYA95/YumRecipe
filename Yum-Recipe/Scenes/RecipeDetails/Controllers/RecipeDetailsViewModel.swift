@@ -20,7 +20,7 @@ protocol RecipeDetailsProtocol {
     var time: String { get }
     var calories: String { get }
     var fats: String { get }
-    // Add other properties as needed
+    
 }
 
 // RecipeDetailsModel implementing the RecipeDetailsProtocol
@@ -35,35 +35,16 @@ struct RecipeDetailsModel: RecipeDetailsProtocol {
     var time: String
     var calories: String
     var fats: String
-    // Add other properties as needed
+    
 }
 
 // Update the 'RecipesModel' to conform to the 'RecipeDetailsProtocol'
 
 class DetailsRecipeViewModel {
-    var recipeData: RecipeDetailsModel // Change the type to RecipeDetailsModel
+    var recipeData: RecipeDetailsModel
+    
 
-//    var recipeImageURL: URL? {
-//        return recipeData.recipeImage
-//    }
-//
-//    var recipeIngredients: String {
-//        return recipeData.ingredients ?? ""
-//    }
-//    
-//    var recipeTime: String {
-//        return recipeData.time
-//    }
-//    
-//    var recipeCalories: String {
-//        return recipeData.calories
-//    }
-//    
-//    var recipeFats: String {
-//        return recipeData.fats
-//    }
-
-    init(recipe: RecipeDetailsModel) { // Change the parameter type to RecipeDetailsModel
+    init(recipe: RecipeDetailsModel) { 
         self.recipeData = recipe
     }
 
@@ -73,7 +54,22 @@ class DetailsRecipeViewModel {
         let recipeDetails = recipe.toRecipeDetailsModel()
         self.init(recipe: recipeDetails)
     }
+    func toggleFavorite() {
+            // Implement the logic to toggle the favorite status here
+            // You can use UserDefaults or any other database to store the favorite recipes
+            // For demonstration purposes, I will use UserDefaults
+
+            let isFavorite = UserDefaults.standard.bool(forKey: "recipe_\(recipeData.id)_favorite")
+
+            if isFavorite {
+                UserDefaults.standard.removeObject(forKey: "recipe_\(recipeData.id)_favorite")
+            } else {
+                UserDefaults.standard.set(true, forKey: "recipe_\(recipeData.id)_favorite")
+            }
+        }
+    
 }
+
 
 extension RecipesModel {
     func toRecipeDetailsModel() -> RecipeDetailsModel {

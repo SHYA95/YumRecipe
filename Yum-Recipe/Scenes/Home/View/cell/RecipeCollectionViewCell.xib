@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="135" height="265"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="sdJ-aK-tTm">
-                                <rect key="frame" x="8" y="34" width="119" height="221"/>
+                                <rect key="frame" x="8" y="34.000000000000014" width="119" height="216.33333333333337"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chef" translatesAutoresizingMaskIntoConstraints="NO" id="PmZ-Za-lxB">
                                         <rect key="frame" x="0.0" y="0.0" width="119" height="100"/>
@@ -37,7 +37,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Yzz-BM-or7">
-                                        <rect key="frame" x="0.0" y="144.33333333333334" width="119" height="76.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="144.33333333333334" width="119" height="72"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kNq-ra-J5I">
                                                 <rect key="frame" x="0.0" y="0.0" width="119" height="47.666666666666664"/>
@@ -82,10 +82,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a3J-TY-kgH">
-                                                <rect key="frame" x="0.0" y="51.666666666666657" width="119" height="25"/>
+                                                <rect key="frame" x="0.0" y="51.666666666666657" width="119" height="20.333333333333329"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Rating:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TV5-zA-yTE">
-                                                        <rect key="frame" x="0.0" y="0.0" width="56" height="25"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="56" height="20.333333333333332"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="56" id="Ae3-3k-uus"/>
                                                         </constraints>
@@ -94,25 +94,11 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="4.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ef0-pu-YZR">
-                                                        <rect key="frame" x="56" y="0.0" width="38" height="25"/>
+                                                        <rect key="frame" x="56" y="0.0" width="63" height="20.333333333333332"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBO-3X-25e">
-                                                        <rect key="frame" x="94" y="0.0" width="25" height="25"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="25" id="8eH-cT-1a6"/>
-                                                            <constraint firstAttribute="height" constant="25" id="GVX-YI-bPJ"/>
-                                                        </constraints>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
-                                                            <color key="baseForegroundColor" red="0.94269311430000002" green="0.43940542490000001" blue="0.03163461109" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        </buttonConfiguration>
-                                                        <connections>
-                                                            <action selector="favButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="jOx-b5-dfz"/>
-                                                        </connections>
-                                                    </button>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -138,7 +124,6 @@
             </constraints>
             <size key="customSize" width="135" height="265"/>
             <connections>
-                <outlet property="FavButton" destination="RBO-3X-25e" id="BeE-gS-eT5"/>
                 <outlet property="RecipeFats" destination="KCu-8G-9zb" id="jfE-sQ-Fvs"/>
                 <outlet property="RecipeImage" destination="PmZ-Za-lxB" id="RkB-TR-y18"/>
                 <outlet property="RecipeName" destination="S6x-dr-pGb" id="9KG-fT-bOS"/>
@@ -150,7 +135,6 @@
     </objects>
     <resources>
         <image name="chef" width="45.333332061767578" height="45.333332061767578"/>
-        <image name="heart" catalog="system" width="128" height="107"/>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

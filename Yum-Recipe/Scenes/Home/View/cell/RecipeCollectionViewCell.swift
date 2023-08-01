@@ -6,12 +6,10 @@
 //
 import UIKit
 import Kingfisher
-import Foundation
 
 protocol RecipeCollectionViewCellDelegate: AnyObject {
-    func didTapFavoriteButton(for recipeID: Int)
+    
 }
-
 
 class RecipeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var RecipeImage: UIImageView!
@@ -19,9 +17,9 @@ class RecipeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var RecipeTime: UILabel!
     @IBOutlet weak var RecipeFats: UILabel!
     @IBOutlet weak var RecipeRating: UILabel!
-    @IBOutlet weak var FavButton: UIButton!
-    private var recipeID: Int?
     weak var delegate: RecipeCollectionViewCellDelegate?
+    private var recipeID: String?
+    private var isFavorite: Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +28,7 @@ class RecipeCollectionViewCell: UICollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
-            // Handle cell selection if needed
+           
         }
     }
     
@@ -47,28 +45,8 @@ class RecipeCollectionViewCell: UICollectionViewCell {
         RecipeFats.text = model.fats
         RecipeRating.text = generateRandomRating()
         
-        recipeID = Int(model.id ?? "")
-        updateFavoriteButton()
+        
     }
     
-    private func updateFavoriteButton() {
-        guard let recipeID = recipeID else {
-            return
-        }
-        
-        let isFavorite = FavoriteRecipesManager().isFavoriteRecipe(recipeID: recipeID)
-        
-        if isFavorite {
-            FavButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        } else {
-            FavButton.setImage(UIImage(systemName: "heart"), for: .normal)
-        }
-    }
     
-    @IBAction func favButtonTapped(_ sender: UIButton) {
-        if let recipeID = recipeID {
-            delegate?.didTapFavoriteButton(for: recipeID)
-            updateFavoriteButton()
-        }
-    }
 }

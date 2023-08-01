@@ -32,4 +32,5 @@ struct RecipesModel: Decodable {
     let incompatibilities: [String?]?
     let deliverableIngredients: [String?]?
     let undeliverableIngredients: [String?]?
+
 }

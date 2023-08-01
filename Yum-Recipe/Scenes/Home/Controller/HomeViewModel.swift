@@ -5,21 +5,21 @@
 //  Created by Shrouk Yasser on 30/07/2023.
 //
 
-
 import Foundation
-import Kingfisher
-
 
 protocol HomeViewModelDelegate: AnyObject {
     func didSelectRecipe(_ recipe: RecipesModel)
-    func didToggleFavoriteStatus(for recipe: RecipesModel)
+    func didToggleFavoriteStatus(for recipeID: Int)
+    func didTapFavoriteButton(for recipeID: Int) // Add this method
 }
-
 
 class HomeViewModel {
     var isLoadingData: Observable<Bool> = Observable(false)
     var dataSource: [RecipesModel]?
     var recipes: Observable<[RecipesModel]> = Observable([])
+    private var favoriteRecipeIDs: Set<Int> = []
+    
+    static let shared = HomeViewModel()
     
     weak var delegate: HomeViewModelDelegate?
     
@@ -64,43 +64,15 @@ class HomeViewModel {
         delegate?.didSelectRecipe(selectedRecipe)
     }
     
-    func retrieveRecipe(withId id: String?) -> RecipeDetailsModel? {
-        guard let id = id, let recipeId = Int(id) else {
-            return nil
+    // New methods for handling favorite recipes
+    func toggleFavorite(for recipeIDString: String) {
+        if let recipeID = Int(recipeIDString) {
+            if favoriteRecipeIDs.contains(recipeID) {
+                favoriteRecipeIDs.remove(recipeID)
+            } else {
+                favoriteRecipeIDs.insert(recipeID)
+            }
+            delegate?.didToggleFavoriteStatus(for: recipeID)
         }
-        
-        // Unwrap 'recipes.value' here
-        guard let recipe = recipes.value?.first(where: { $0.id == id }) else {
-            return nil
-        }
-        
-        // Unwrap 'recipe.image' here
-        guard let imageURL = URL(string: recipe.image ?? "") else {
-            return nil
-        }
-        
-        return RecipeDetailsModel(
-            id: recipeId,
-            name: recipe.name ?? "",
-            headline: recipe.headline,
-            description: recipe.description,
-            backdropPath: nil,
-            recipeImage: imageURL,
-            ingredients: recipe.ingredients.joined(separator: ", "),
-            time: recipe.time ?? "",
-            calories: recipe.calories ?? "",
-            fats: recipe.fats ?? ""
-        )
     }
-    func toggleFavorite(for recipe: RecipesModel) {
-           if let recipeID = Int(recipe.id ?? "") {
-               let favoritesManager = FavoriteRecipesManager()
-               if favoritesManager.isFavoriteRecipe(recipeID: recipeID) {
-                   favoritesManager.removeFavoriteRecipe(recipeID: recipeID)
-               } else {
-                   favoritesManager.addFavoriteRecipe(recipeID: recipeID)
-               }
-               delegate?.didToggleFavoriteStatus(for: recipe)
-           }
-       }
-   }
+}

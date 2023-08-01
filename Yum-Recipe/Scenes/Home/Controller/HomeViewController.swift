@@ -6,53 +6,51 @@
 //
 import UIKit
 
-class HomeViewController: UIViewController, UICollectionViewDelegate, RecipeCollectionViewCellDelegate, RecipeDetailsViewControllerDelegate {
-    func didTapFavoriteButton(for recipeID: Int) {
-        RecipesCollectionView.reloadData()
-    }
+class HomeViewController: UIViewController, RecipeCollectionViewCellDelegate {
+    func didTapFavoriteButton(for recipeID: String) {
     
-    func didToggleFavoriteStatus(for recipeID: Int) {
-        RecipesCollectionView.reloadData()
-    }
-    
-    
+        }
     
     @IBOutlet weak var Indicator: UIActivityIndicatorView!
     @IBOutlet weak var RecipesCollectionView: UICollectionView!
     
-    var viewModel: HomeViewModel! // Declare the view model
+    var viewModel: HomeViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         showLoader()
         RecipesCollectionView.backgroundColor = .black
         
-        viewModel = HomeViewModel() // Initialize the view model
-        viewModel.delegate = self // Set the delegate to self
-     
+        setupCollectionView()
+        initializeViewModel()
+    }
+    
+    private func setupCollectionView() {
         RecipesCollectionView.register(UINib(nibName: "RecipeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "RecipeCollectionViewCell")
         RecipesCollectionView.dataSource = self
         RecipesCollectionView.delegate = self
-        
-        // Call getData to fetch the data from the API
-                viewModel.getData()
-                
-                // Bind the data to the collection view
-                viewModel.recipes.bind { [weak self] _ in
-                    self?.hideLoader() // Hide the loader indicator once the data is loaded
-                    self?.RecipesCollectionView.reloadData()
-                }
-            }
-    func showLoader() {
-            Indicator.startAnimating()
-            Indicator.isHidden = false
-        }
-
-        func hideLoader() {
-            Indicator.stopAnimating()
-            Indicator.isHidden = true
+    }
+    
+    private func initializeViewModel() {
+        viewModel = HomeViewModel()
+        viewModel.delegate = self
+        viewModel.getData()
+        viewModel.recipes.bind { [weak self] _ in
+            self?.hideLoader()
+            self?.RecipesCollectionView.reloadData()
         }
     }
+    
+    func showLoader() {
+        Indicator.startAnimating()
+        Indicator.isHidden = false
+    }
+
+    func hideLoader() {
+        Indicator.stopAnimating()
+        Indicator.isHidden = true
+    }
+}
 
 // MARK: - UICollectionViewDataSource
 extension HomeViewController: UICollectionViewDataSource {
@@ -61,24 +59,20 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.getNumberOfRecipes() // Use the view model to get the number of recipes
+        return viewModel.getNumberOfRecipes()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecipeCollectionViewCell", for: indexPath) as! RecipeCollectionViewCell
-        
-        // Set the delegate of the cell to self (the HomeViewController)
         cell.delegate = self
-        
-        // Rest of your cell setup code
+
         if let recipe = viewModel.getRecipe(at: indexPath.item) {
             cell.setupCell(recipe)
         }
-        
+
         return cell
     }
 }
-
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
@@ -88,7 +82,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         let collectionViewWidth = collectionView.frame.width
         let cellWidth = (collectionViewWidth - 1 * padding - 2 * spacing) / 2
         let cellHeight = cellWidth + 105
-        // Adjust the height according to your design
         
         return CGSize(width: cellWidth, height: cellHeight)
     }
@@ -106,40 +99,28 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            if let recipe = viewModel.getRecipe(at: indexPath.item) {
-                // Create an instance of DetailsRecipeViewModel with the selected recipe
-                let recipeDetailsViewModel = DetailsRecipeViewModel(recipe: recipe)
+        if let recipe = viewModel.getRecipe(at: indexPath.item) {
+            let recipeDetailsViewModel = DetailsRecipeViewModel(recipe: recipe)
+            let recipeDetailsViewController = RecipeDetailsViewController()
+            recipeDetailsViewController.viewModel = recipeDetailsViewModel
+            navigationController?.pushViewController(recipeDetailsViewController, animated: true)
+            
 
-                // Create an instance of RecipeDetailsViewController
-                let recipeDetailsViewController = RecipeDetailsViewController()
-
-                // Set the view model of RecipeDetailsViewController
-                recipeDetailsViewController.viewModel = recipeDetailsViewModel
-
-                // Push the RecipeDetailsViewController onto the navigation stack
-                navigationController?.pushViewController(recipeDetailsViewController, animated: true)
-            }
         }
-
-    
+    }
 }
 
 // MARK: - HomeViewModelDelegate
 extension HomeViewController: HomeViewModelDelegate {
+    func didToggleFavoriteStatus(for recipeID: Int) {
+    }
+    
+    func didTapFavoriteButton(for recipeID: Int) {
+    }
     func didSelectRecipe(_ recipe: RecipesModel) {
-        // Handle recipe selection
         let recipeDetailsViewModel = DetailsRecipeViewModel(recipe: recipe)
         let recipeDetailsViewController = RecipeDetailsViewController()
         recipeDetailsViewController.viewModel = recipeDetailsViewModel
         navigationController?.pushViewController(recipeDetailsViewController, animated: true)
     }
-    
-    func didToggleFavoriteStatus(for recipe: RecipesModel) {
-        // Handle favorite status change
-        RecipesCollectionView.reloadData()
-    }
 }
-
-
-    
-    

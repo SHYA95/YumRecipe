@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 class LoginViewModel {
     func login(email: String, password: String, completion: @escaping (Bool, String) -> Void) {
             // Check email format

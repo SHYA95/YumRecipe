@@ -59,7 +59,6 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Far-pw-tfH">
                                             <rect key="frame" x="0.0" y="355.33333333333331" width="412" height="30"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="Uhe-w9-fyb"/>
                                                 <constraint firstAttribute="height" constant="30" id="urv-ZI-Xv9"/>
                                             </constraints>
                                             <color key="tintColor" red="0.94269311430000002" green="0.43940542490000001" blue="0.03163461109" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -68,7 +67,7 @@
                                                 <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
                                             </buttonConfiguration>
                                             <connections>
-                                                <action selector="FavButton:" destination="-1" eventType="touchUpInside" id="Gwi-Mc-bvE"/>
+                                                <action selector="FavButtonTapped:" destination="-1" eventType="touchUpInside" id="uja-bo-neY"/>
                                             </connections>
                                         </button>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="156" translatesAutoresizingMaskIntoConstraints="NO" id="2ak-2Y-84s">
