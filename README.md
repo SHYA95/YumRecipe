@@ -6,7 +6,8 @@ view recipe details, and create their own collection of favorite recipes.
 
 ## Used In The APP
 - SWIFT
-- Clean Architecture 
+- Clean Architecture
+- third party libs
 - Network Layer (URLSession)
 - MVVM Architecture Pattern
 - Local data persistence(ٍuser defaults)
